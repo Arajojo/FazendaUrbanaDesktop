@@ -136,36 +136,69 @@ namespace FazendaUrbanaDesktop
         }
         private void mtxtCPF_LostFocus(object sender, EventArgs e)
         {
-            if (mtxtCPF.Text.Length == 14)
+            if (ckType.Checked)
             {
                 String _cpf = mtxtCPF.Text.Replace(".", "");
                 _cpf = _cpf.Replace("/", "");
-
-                clients Client = new clients();
-
-                Client = data.clients.Where(c => c.cpf == _cpf).FirstOrDefault();
-                if (Client != null)
+                _cpf = _cpf.Replace(" ", "");
+                MessageBox.Show(_cpf);
+                if (_cpf.Length == 11)
                 {
-                    txtClientName.Text = Client.name;
+                    clients Client = new clients();
+
+                    Client = data.clients.Where(c => c.cpf == _cpf).FirstOrDefault();
+                    if (Client != null)
+                    {
+                        txtClientName.Text = Client.name;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente não cadastrado");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Cliente não cadastrado");
+                    MessageBox.Show("cpf invalido");
                 }
             }
             else
             {
-                MessageBox.Show("cpf invalido");
+                String _cnpj = mtxtCPF.Text.Replace(".", "");
+                _cnpj = _cnpj.Replace("/", "");
+                _cnpj = _cnpj.Replace("-", "");
+                _cnpj = _cnpj.Replace(" ", "");
+                if (_cnpj.Length == 14)
+                {
+                    clients Client = new clients();
+
+                    Client = data.clients.Where(c => c.cpf == _cnpj).FirstOrDefault();
+                    if(Client != null)
+                    {
+                        txtClientName.Text = Client.name;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente não cadastrado");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("cnpj invalido");
+                }
             }
+            
         }
 
         private void ckType_CheckedChanged(object sender, EventArgs e)
         {
+            mtxtCPF.Text = "";
             if (!ckType.Checked)
             {
+                mtxtCPF.Mask = "00,000,000/0000-00";
             }
             else 
             {
+                mtxtCPF.Mask = "000,000,000/00";
             }
         }
     }
