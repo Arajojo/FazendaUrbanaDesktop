@@ -130,5 +130,43 @@ namespace FazendaUrbanaDesktop
                 txtValor.Text = OS.calcPrice(decimal.Parse(cmbDescont.Text), Product.price, nQtd.Value).ToString();
             }
         }
+
+        private void mtxtCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+        }
+        private void mtxtCPF_LostFocus(object sender, EventArgs e)
+        {
+            if (mtxtCPF.Text.Length == 14)
+            {
+                String _cpf = mtxtCPF.Text.Replace(".", "");
+                _cpf = _cpf.Replace("/", "");
+
+                clients Client = new clients();
+
+                Client = data.clients.Where(c => c.cpf == _cpf).FirstOrDefault();
+                if (Client != null)
+                {
+                    txtClientName.Text = Client.name;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não cadastrado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("cpf invalido");
+            }
+        }
+
+        private void ckType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!ckType.Checked)
+            {
+            }
+            else 
+            {
+            }
+        }
     }
 }

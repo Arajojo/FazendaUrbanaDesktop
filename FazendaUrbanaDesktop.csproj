@@ -168,6 +168,7 @@
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\OS.cs" />
     <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Classes\Validations.cs" />
     <Compile Include="clients.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
