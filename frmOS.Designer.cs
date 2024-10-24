@@ -40,10 +40,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mtxtFunc = new System.Windows.Forms.MaskedTextBox();
+            this.ckType = new System.Windows.Forms.CheckBox();
             this.mtxtCPF = new System.Windows.Forms.MaskedTextBox();
             this.cmbDescont = new System.Windows.Forms.ComboBox();
             this.nQtd = new System.Windows.Forms.NumericUpDown();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtFuncName = new System.Windows.Forms.TextBox();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.txtTitleProd = new System.Windows.Forms.TextBox();
             this.dtEntregaProd = new System.Windows.Forms.DateTimePicker();
@@ -56,9 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIdProd = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.ckType = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.pnl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -228,11 +228,12 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.mtxtFunc);
             this.panel1.Controls.Add(this.ckType);
             this.panel1.Controls.Add(this.mtxtCPF);
             this.panel1.Controls.Add(this.cmbDescont);
             this.panel1.Controls.Add(this.nQtd);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txtFuncName);
             this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Controls.Add(this.txtTitleProd);
             this.panel1.Controls.Add(this.dtEntregaProd);
@@ -245,12 +246,34 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtIdProd);
-            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(55, 76);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(354, 355);
             this.panel1.TabIndex = 0;
+            // 
+            // mtxtFunc
+            // 
+            this.mtxtFunc.Location = new System.Drawing.Point(20, 275);
+            this.mtxtFunc.Mask = "000";
+            this.mtxtFunc.Name = "mtxtFunc";
+            this.mtxtFunc.Size = new System.Drawing.Size(121, 20);
+            this.mtxtFunc.TabIndex = 26;
+            this.mtxtFunc.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtFunc_MaskInputRejected);
+            this.mtxtFunc.LostFocus += new System.EventHandler(this.mtxtFunc_LostFocus);
+            // 
+            // ckType
+            // 
+            this.ckType.AutoSize = true;
+            this.ckType.Checked = true;
+            this.ckType.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckType.Location = new System.Drawing.Point(71, 13);
+            this.ckType.Name = "ckType";
+            this.ckType.Size = new System.Drawing.Size(96, 17);
+            this.ckType.TabIndex = 25;
+            this.ckType.Text = "Pessoa física?";
+            this.ckType.UseVisualStyleBackColor = true;
+            this.ckType.CheckedChanged += new System.EventHandler(this.ckType_CheckedChanged);
             // 
             // mtxtCPF
             // 
@@ -303,13 +326,13 @@
             this.nQtd.TabIndex = 22;
             this.nQtd.ValueChanged += new System.EventHandler(this.nQtd_ValueChanged);
             // 
-            // textBox4
+            // txtFuncName
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(147, 275);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(186, 20);
-            this.textBox4.TabIndex = 21;
+            this.txtFuncName.Enabled = false;
+            this.txtFuncName.Location = new System.Drawing.Point(147, 275);
+            this.txtFuncName.Name = "txtFuncName";
+            this.txtFuncName.Size = new System.Drawing.Size(186, 20);
+            this.txtFuncName.TabIndex = 21;
             // 
             // txtClientName
             // 
@@ -421,13 +444,6 @@
             this.txtIdProd.Text = "0";
             this.txtIdProd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(19, 275);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(122, 20);
-            this.textBox3.TabIndex = 10;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -442,19 +458,6 @@
             this.button1.Text = "Salvar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ckType
-            // 
-            this.ckType.AutoSize = true;
-            this.ckType.Checked = true;
-            this.ckType.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckType.Location = new System.Drawing.Point(71, 13);
-            this.ckType.Name = "ckType";
-            this.ckType.Size = new System.Drawing.Size(96, 17);
-            this.ckType.TabIndex = 25;
-            this.ckType.Text = "Pessoa física?";
-            this.ckType.UseVisualStyleBackColor = true;
-            this.ckType.CheckedChanged += new System.EventHandler(this.ckType_CheckedChanged);
             // 
             // frmOS
             // 
@@ -504,13 +507,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.NumericUpDown nQtd;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtFuncName;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox cmbDescont;
         private System.Windows.Forms.MaskedTextBox mtxtCPF;
         private System.Windows.Forms.CheckBox ckType;
+        private System.Windows.Forms.MaskedTextBox mtxtFunc;
     }
 }

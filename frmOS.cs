@@ -201,5 +201,29 @@ namespace FazendaUrbanaDesktop
                 mtxtCPF.Mask = "000,000,000/00";
             }
         }
+
+        private void mtxtFunc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+        private void mtxtFunc_LostFocus(object sender, EventArgs e)
+        {
+                int.TryParse(mtxtFunc.Text, out int _id);
+            
+            
+                employees Employer = new employees();
+
+                Employer = data.employees.Where(c => c.id == _id).FirstOrDefault();
+                if (Employer != null)
+                {
+                    txtFuncName.Text = Employer.name;
+                }
+                else
+                {
+                    MessageBox.Show("Funcionario não cadastrado");
+                    txtFuncName.Text = "";
+                }
+            
+        }
     }
 }
