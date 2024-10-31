@@ -55,10 +55,36 @@ namespace FazendaUrbanaDesktop
 
         private void button1_Click(object sender, EventArgs e)//btnEnviar
         {
-            
             os Os = new os();
             Os.dateEmi = DateTime.Now.Date;
-            //Os.entregaProd =
+            Os.entregaProd = dtEntregaProd.Value;
+
+            Os.employeeId = int.Parse(mtxtFunc.Text);
+            Os.productId = int.Parse(txtIdProd.Text);
+            Os.quantity = int.Parse(nQtd.Value.ToString());
+
+            if (ckType.Checked)
+            {
+                String _cpf = mtxtCPF.Text.Replace(".", "");
+                _cpf = _cpf.Replace("/", "");
+                _cpf = _cpf.Replace(" ", "");
+                Os.clientCpf = _cpf;
+            }
+            else
+            {
+                String _cnpj = mtxtCPF.Text.Replace(".", "");
+                _cnpj = _cnpj.Replace("/", "");
+                _cnpj = _cnpj.Replace("-", "");
+                _cnpj = _cnpj.Replace(" ", "");
+                Os.clientCpf = _cnpj;
+            }
+            
+
+            data.os.Add(Os);
+            data.SaveChanges();
+            frmMain frmMain = new frmMain();
+            frmMain.Show();
+            this.Close();
         }
 
         private void frmOS_Load(object sender, EventArgs e)//evento quando o formulario carregar
@@ -141,7 +167,7 @@ namespace FazendaUrbanaDesktop
                 String _cpf = mtxtCPF.Text.Replace(".", "");
                 _cpf = _cpf.Replace("/", "");
                 _cpf = _cpf.Replace(" ", "");
-                MessageBox.Show(_cpf);
+                
                 if (_cpf.Length == 11)
                 {
                     clients Client = new clients();

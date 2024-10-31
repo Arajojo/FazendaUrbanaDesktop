@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FazendaUrbanaDesktop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,11 @@ namespace FazendaUrbanaDesktop
             frmOS frmOS = new frmOS();
             frmOS.Show();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

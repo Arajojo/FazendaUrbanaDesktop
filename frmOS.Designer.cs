@@ -249,12 +249,12 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(55, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(354, 355);
+            this.panel1.Size = new System.Drawing.Size(354, 287);
             this.panel1.TabIndex = 0;
             // 
             // mtxtFunc
             // 
-            this.mtxtFunc.Location = new System.Drawing.Point(20, 275);
+            this.mtxtFunc.Location = new System.Drawing.Point(21, 195);
             this.mtxtFunc.Mask = "000";
             this.mtxtFunc.Name = "mtxtFunc";
             this.mtxtFunc.Size = new System.Drawing.Size(121, 20);
@@ -329,7 +329,7 @@
             // txtFuncName
             // 
             this.txtFuncName.Enabled = false;
-            this.txtFuncName.Location = new System.Drawing.Point(147, 275);
+            this.txtFuncName.Location = new System.Drawing.Point(148, 195);
             this.txtFuncName.Name = "txtFuncName";
             this.txtFuncName.Size = new System.Drawing.Size(186, 20);
             this.txtFuncName.TabIndex = 21;
@@ -379,7 +379,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 257);
+            this.label10.Location = new System.Drawing.Point(17, 177);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 16);
             this.label10.TabIndex = 18;
@@ -451,7 +451,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(19, 304);
+            this.button1.Location = new System.Drawing.Point(19, 233);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(315, 32);
             this.button1.TabIndex = 5;
